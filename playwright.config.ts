@@ -1,4 +1,10 @@
 import { defineConfig, devices } from '@playwright/test';
+import dotenv from 'dotenv'
+import path from 'path';
+
+
+const envFile = path.resolve(process.env.ENV?`.env${process.env.ENV}`:'.env')
+dotenv.config({path:envFile})
 
 
 export default defineConfig({
