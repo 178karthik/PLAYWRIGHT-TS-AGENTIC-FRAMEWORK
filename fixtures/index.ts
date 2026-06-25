@@ -1,6 +1,7 @@
-import {test as base,BrowserContext,Page} from '@playwright/test'
+import {test as base,BrowserContext,Page, request} from '@playwright/test'
 import { LoginPage } from './LoginPage'
 import {InventoryPage} from './InventoryPage'
+import {APIClient} from '../api/APIClient'
 
 type MyFixtures = {
 
@@ -8,6 +9,7 @@ context : BrowserContext,
 page: Page,
 loginPage :LoginPage,
 inventoryPage :InventoryPage
+api:APIClient
 }
 
 export const test = base.extend<MyFixtures>({
@@ -28,6 +30,9 @@ export const test = base.extend<MyFixtures>({
    },
    inventoryPage :async({page},use)=>{
    await use(new InventoryPage(page))
+   },
+   api:async({request},use)=>{
+      await use(new APIClient(request))
    }
 })
 
