@@ -17,9 +17,8 @@ export default defineConfig({
   reporter: 'html',
   timeout : 360 *1000,
   use: {
-    /* Base URL to use in actions like `await page.goto('')`. */
-    // baseURL: 'http://localhost:3000',
-
+  
+    baseURL: 'https://petstore.swagger.io/',
     browserName:'chromium',
     screenshot: 'only-on-failure',
     trace: 'on-first-retry',
