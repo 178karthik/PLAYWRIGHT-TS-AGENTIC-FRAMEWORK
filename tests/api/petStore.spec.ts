@@ -59,7 +59,7 @@ test.describe('PetStore Api Tests', () => {
         };
 
         let putResponse: APIResponse = await request.put('v2/pet', {data:payload});
-        expect(putResponse.ok());
+        console.log(putResponse.ok());
         console.log(putResponse.headersArray()[0]);
         const putResponseBody = await putResponse.json();
         const categoryType = putResponseBody.category.name;
