@@ -15,6 +15,20 @@ test.describe('PetStore Api Tests', () => {
         console.log(firstId);
         let allIds = pets.map(pet => pet.id);
         console.log(allIds)
+        const categoryIds = pets.map(pet=>pet.category.id)
+        console.log("all categoryIds"+categoryIds)
+        
+        // Extract all tag IDs from all pets
+        const tagIds = [];
+        for (const pet of pets) {
+            for (const tag of pet.tags) {
+                tagIds.push(tag.id);
+            }
+        }
+
+        const tagIds1 = pets.flatMap(pet=>pet.tags.map(tag=>tag.id)) 
+        console.log("all tagIds: " + tagIds)
+        console.log("all tagIds: " + tagIds1)
     })
     test('Add a new pet to the store', async ({ request }) => {
         const api = new APIClient(request);
