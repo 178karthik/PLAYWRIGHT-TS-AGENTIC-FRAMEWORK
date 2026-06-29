@@ -14,7 +14,7 @@ test('Create Booking', async ({ request }) => {
         "additionalneeds": "Breakfast"
     }
 
-    let createBooking = await request.post('https://restful-booker.herokuapp.com/booking/', { headers: { "Content-Type": "application/json" }, data: createBookingPayload });
+    let createBooking = await request.post('booking/', { headers: { "Content-Type": "application/json" }, data: createBookingPayload });
     const createBookingResponseBody = await createBooking.json();
     expect(createBooking.status()).toBe(200);
     expect(createBooking.ok()).toBeTruthy();
