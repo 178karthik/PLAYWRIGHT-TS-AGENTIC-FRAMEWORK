@@ -1,4 +1,4 @@
-import {test as base,BrowserContext,Page, request} from '@playwright/test'
+import {test as base,BrowserContext,Page} from '@playwright/test'
 import { LoginPage } from './LoginPage'
 import {InventoryPage} from './InventoryPage'
 import {APIClient} from '../api/APIClient'
