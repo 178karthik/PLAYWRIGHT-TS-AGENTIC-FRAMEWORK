@@ -36,13 +36,13 @@ export default defineConfig({
       name: 'chromium',
       use: { ...devices['Desktop Chrome'] },
     },
-    {
-      name :'restful-booker-api',
-      testMatch :'**/restfulBooker.spec.ts',
-      use:{
-        baseURL:'https://restful-booker.herokuapp.com/'
-      }
-    }
+    // {
+    //   name :'restful-booker-api',
+    //   testMatch :'**/restfulBooker.spec.ts',
+    //   use:{
+    //     baseURL:'https://restful-booker.herokuapp.com/'
+    //   }
+    // }
 
     // {
     //   name: 'firefox',
