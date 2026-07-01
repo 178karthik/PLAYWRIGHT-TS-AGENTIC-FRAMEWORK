@@ -1,64 +1,8 @@
 import { test, expect } from '@playwright/test'
-const complexJson1 = {
-            "company": {
-                "name": "Tech Innovators",
-                "location": {
-                    "city": "San Francisco",
-                    "state": "California",
-                    "country": "USA"
-                },
-                "departments": [
-                    {
-                        "name": "Engineering",
-                        "head": "Alice Johnson",
-                        "teams": [
-                            {
-                                "name": "Backend",
-                                "lead": "Bob Smith",
-                                "members": [
-                                    { "name": "Charlie", "role": "Senior Developer", "skills": ["Java", "Spring Boot", "AWS"] },
-                                    { "name": "Diana", "role": "Junior Developer", "skills": ["Python", "Flask"] }
-                                ]
-                            },
-                            {
-                                "name": "Frontend",
-                                "lead": "Emily Davis",
-                                "members": [
-                                    { "name": "Frank", "role": "Senior Developer", "skills": ["React", "TypeScript"] },
-                                    { "name": "Grace", "role": "UI Designer", "skills": ["Figma", "CSS"] }
-                                ]
-                            }
-                        ]
-                    },
-                    {
-                        "name": "Marketing",
-                        "head": "Harvey Lee",
-                        "teams": [
-                            {
-                                "name": "Content",
-                                "lead": "Ivy Clark",
-                                "members": [
-                                    { "name": "Jack", "role": "Copywriter", "skills": [] },
-                                    { "name": "Karen", "role": "SEO Specialist", "skills": [] }
-                                ]
-                            },
-                            {
-                                "name": "Social Media",
-                                "lead": "Leo Martin",
-                                "members": [
-                                    { "name": "Mia", "role": "Social Media Manager" },
-                                    { "name": "Nathan", "role": "Graphic Designer" }
-                                ]
-                            }
-                        ]
-                    }
-                ]
-            }
-
-        }
+import complexJson from '../../resources/api-payloads/complexJson.json'
 test.describe('Parsing Complex Jsons', () => {
+    const complexJson1 = structuredClone(complexJson)
     test("1.Retrieve the city of the company' location", async ({}) => {
-
      const cityName = complexJson1.company.location.city;
      expect(cityName).toBe("San Francisco");
      console.log(cityName)
